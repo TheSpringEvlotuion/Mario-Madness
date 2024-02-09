@@ -3680,7 +3680,8 @@ class PlayState extends MusicBeatState
 				act1Stat = new BGSprite('mario/allfinal/act1/act1_stat', -900, -860, 0.4, 0.4, ['act1_static']);
 				act1Stat.animation.addByPrefix('idle', 'act1_static', 24, true);
 				act1Stat.animation.play('idle');
-				act1Stat.scale.set(4, 4);
+				act1Stat.scale.set(8, 8);
+				act1Stat.updateHitbox();
 				act1BGGroup.add(act1Stat);
 
 				act1Sky = new BGSprite('mario/allfinal/act1/act1_sky', -1850, -660, 0.6, 0.6);
@@ -3693,25 +3694,32 @@ class PlayState extends MusicBeatState
 				act1BGGroup.add(act1Buildings);
 
 				act1Floor = new BGSprite('mario/allfinal/act1/act1_floor', -2300, -660, 1, 1);
+				act1Floor.scale.set(2, 2);
+				act1Floor.updateHitbox();
 				act1BGGroup.add(act1Floor);
 
 				act1Fog = new BGSprite('mario/allfinal/act1/act1', 0, 0, 1, 1);
 				act1Fog.cameras = [camOther];
+				act1Fog.scale.set(2, 2);
+				act1Fog.updateHitbox();
 				act1Fog.visible = false;
 				act1BGGroup.add(act1Fog);
 
 				act1FG = new BGSprite('mario/allfinal/act1/act1_fg', -2530, -850, 1.7, 1.7);
 			
 				act1Gradient = new BGSprite('mario/allfinal/act1/act1_gradient', -2300, -910, 1, 1);
+				act1Gradient.scale.set(2, 2);
+				act1Gradient.updateHitbox();
 
 				//act 2 stage
 
 				act2BGGroup = new FlxTypedGroup<BGSprite>();
 
-				act2Stat = new BGSprite('mario/allfinal/act2/act2_static', -70, -360, 0.2, 0.2, ['act2Stat']);
+				act2Stat = new BGSprite('mario/allfinal/act2/act2_static', -470, -360, 0.2, 0.2, ['act2Stat']);
 				act2Stat.animation.addByPrefix('idle', 'act2stat', 24, true);
 				act2Stat.animation.play('idle');
-				act2Stat.scale.set(1.75, 1.75);
+				act2Stat.scale.set(7, 7);
+				act2Stat.updateHitbox();
 				add(act2Stat);
 
 				act2WhiteFlash = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
@@ -3725,6 +3733,8 @@ class PlayState extends MusicBeatState
 				act2Sky.y = -300;
 				act2Sky.x = -500;
 				act2Sky.visible = false;
+				act2Sky.scale.set(2, 2);
+				act2Sky.updateHitbox();
 				add(act2Sky);
 
 				add(act2BGGroup);
@@ -3733,21 +3743,31 @@ class PlayState extends MusicBeatState
 				act2BGGroup.add(act2PipesFar);
 
 				act2Gradient = new BGSprite('mario/allfinal/act2/act2_abyss_gradient', -500, -425, 0.6, 0.6);
+				act2Gradient.scale.set(2, 2);
+				act2Gradient.updateHitbox();
 				act2BGGroup.add(act2Gradient);
 
 				act2PipesMiddle = new BGSprite('mario/allfinal/act2/act2_pipes_middle', -500, -300, 0.7, 0.7);
+				act2PipesMiddle.scale.set(2, 2);
+				act2PipesMiddle.updateHitbox();
 				act2BGGroup.add(act2PipesMiddle);
 
 				act2PipesClose = new BGSprite('mario/allfinal/act2/act2_pipes_close', -500, -320, 0.8, 0.8);
 				act2BGGroup.add(act2PipesClose);
 				//LG Pipe
 				act2LPipe = new BGSprite('mario/allfinal/act2/act2_pipes_lgbf', -600, -360 + 800, 0.9, 0.9);
+				act2LPipe.scale.set(2, 2);
+				act2LPipe.updateHitbox();
 				act2BGGroup.add(act2LPipe);
 				//w4r pipe
 				act2WPipe = new BGSprite('mario/allfinal/act2/act2_pipes_waryosh', -740, -260 + 800, 0.95, 0.95);
+				act2WPipe.scale.set(2, 2);
+				act2WPipe.updateHitbox();
 				act2BGGroup.add(act2WPipe);
 				//y0sh pipe
 				act2YPipe = new BGSprite('mario/allfinal/act2/act2_pipes_waryosh', -460, -260 + 800, 0.95, 0.95);
+				act2YPipe.scale.set(2, 2);
+				act2YPipe.updateHitbox();
 				act2YPipe.flipX = true;
 				act2BGGroup.add(act2YPipe);
 
@@ -3762,18 +3782,22 @@ class PlayState extends MusicBeatState
 				add(funnylayer0);
 
 				//bf pipe
-				act2BFPipe = new BGSprite('mario/allfinal/act2/act2_pipes_lgbf', -630, -80, 1, 1);
-				act2BFPipe.scale.set(1.2, 1.2);
+				act2BFPipe = new BGSprite('mario/allfinal/act2/act2_pipes_lgbf', -830, -280, 1, 1);
+				act2BFPipe.scale.set(2.4, 2.4);
+				act2BFPipe.updateHitbox();
 				add(act2BFPipe);
 
 				act2Fog = new BGSprite('mario/allfinal/act2/act2', 0, 0, 1, 1);
+				act2Fog.scale.set(2, 2);
+				act2Fog.updateHitbox();
 				act2Fog.cameras = [camOther];
 				act2BGGroup.add(act2Fog);
 
 				act2IntroGF = new BGSprite('mario/allfinal/act1/Act_2_Intro', 0, 330, 0.2, 0.2, ['act2Stat']);
 				act2IntroGF.animation.addByPrefix('idle', 'Anim1', 24, true);
 				act2IntroGF.cameras = [camOther];
-				act2IntroGF.scale.set(2, 2);
+				act2IntroGF.scale.set(4, 4);
+				act2IntroGF.updateHitbox();
 				act2IntroGF.visible = false;
 				act2IntroGF.screenCenter(X);
 				act2IntroGF.x -= 40;
@@ -3802,13 +3826,15 @@ class PlayState extends MusicBeatState
 				act3Stat = new BGSprite('mario/allfinal/act3/Act3_Static', -730 - 275, -720 + 440, 0.2, 0.2, ['act3Stat']);
 				act3Stat.animation.addByPrefix('idle', 'act3stat', 24, true);
 				act3Stat.animation.play('idle');
-				act3Stat.scale.set(1.3, 1.3);
+				act3Stat.scale.set(5.2, 5.2);
+				act3Stat.updateHitbox();
 				act3BGGroup.add(act3Stat);
 
 				act3Hills = new BGSprite('mario/allfinal/act3/Act3_Hills', -730 - 275 + 300, 450, 0.4, 0.4, ['hills']);
 				act3Hills.animation.addByPrefix('idle', 'hills', 24, true);
 				act3Hills.animation.play('idle');
-				act3Hills.scale.set(1.3, 1.3);
+				act3Hills.scale.set(2.6, 2.6);
+				act3Hills.updateHitbox();
 				act3BGGroup.add(act3Hills);
 				
 				act3UltraArm = new BGSprite('mario/allfinal/act3/Act3_Ultra_Arm', -900 - 275, -1215 + 440, 0.8, 0.8);
@@ -3819,19 +3845,23 @@ class PlayState extends MusicBeatState
 				act3UltraBody.animation.addByPrefix('idle', 'torso idle 1', 24, false);
 				act3UltraBody.animation.addByPrefix('change', 'torso change pose', 24, false);
 				act3UltraBody.animation.addByPrefix('idle-alt', 'torso idle 2', 24, false);
-				act3UltraBody.scale.set(1.4, 1.4);
+				act3UltraBody.scale.set(5.6, 5.6);
+				act3UltraBody.updateHitbox();
 				act3BGGroup.add(act3UltraBody);
 
 				act3UltraHead1 = new BGSprite('mario/allfinal/act3/Act3_Ultra_M_Head', -200 - 275, -650 + 440, 0.8, 0.8, ['ultra m static head']);
 				act3UltraHead1.animation.addByPrefix('idle', 'ultra m static head', 24, true);
 				act3UltraHead1.animation.addByPrefix('sing', 'ultra m lyrics 1', 24, false);
 				act3UltraHead1.animation.play('idle');
-				act3UltraHead1.scale.set(1.1, 1.1);
+				act3UltraHead1.scale.set(4.4, 4.4);
+				act3UltraHead1.updateHitbox();
 				act3BGGroup.add(act3UltraHead1);
 
 				act3UltraHead2 = new BGSprite('mario/allfinal/act3/Act3_Ultra_M_Head2', -200 - 300, -650 + 325, 0.8, 0.8, ['ultra m lyrics 1']);
 				act3UltraHead2.animation.addByPrefix('sing', 'ultra m lyrics 2', 24, false);
 				act3UltraHead2.animation.addByPrefix('laugh', 'ultra m head laugh', 24, false);
+				act3UltraHead2.scale.set(4, 4);
+				act3UltraHead2.updateHitbox();
 				act3BGGroup.add(act3UltraHead2);
 
 				act3UltraPupils = new BGSprite('mario/allfinal/act3/Act3_Ultra_Pupils', -175, -300 + 405, 0.8, 0.8, ['ultra pupils']);
@@ -3840,13 +3870,18 @@ class PlayState extends MusicBeatState
 				act3BGGroup.add(act3UltraPupils);
 
 				act3BFPipe = new BGSprite('mario/allfinal/act3/Act3_bfpipe', 390 - 275, 165 + 440, 1, 1);
+				act3BFPipe.scale.set(2, 2);
+				act3BFPipe.updateHitbox();
 				act3BGGroup.add(act3BFPipe);
 
 				act3Spotlight = new BGSprite('mario/allfinal/act3/act3Spotlight', -1550, -300, 1, 1);
-				act3Spotlight.scale.set(1.3, 1);
+				act3Spotlight.scale.set(2.6, 2);
+				act3Spotlight.updateHitbox();
 				act3Spotlight.visible = false;
 
 				act3Fog = new BGSprite('mario/allfinal/act3/act3', 0, 0, 1, 1);
+				act3Fog.scale.set(2, 2);
+				act3Fog.updateHitbox();
 				act3Fog.alpha = 0.7;
 				act3Fog.cameras = [camOther];
 				act3BGGroup.add(act3Fog);
@@ -3860,11 +3895,15 @@ class PlayState extends MusicBeatState
 
 				act4Stat = new BGSprite('mario/allfinal/act4/gray static', -75, -300, 0.3, 0.3, ['static']);
 				act4Stat.animation.addByPrefix('idle', 'static', 24, true);
+				act4Stat.scale.set(2, 2);
+				act4Stat.updateHitbox();
 				act4Stat.animation.play('idle');
 				act4BGGroup.add(act4Stat);
 
 				act4Ripple = new BGSprite('mario/allfinal/act4/bg ripple', -180, 25, 0.5, 0.5, ['bg ripple']);
 				act4Ripple.animation.addByPrefix('idle', 'bg ripple', 24, true);
+				act4Ripple.scale.set(2, 2);
+				act4Ripple.updateHitbox();
 				act4Ripple.animation.play('idle');
 				act4BGGroup.add(act4Ripple);
 
@@ -3902,11 +3941,15 @@ class PlayState extends MusicBeatState
 				act4Lightning = new BGSprite('mario/allfinal/act4/Act_4_FINALE_Lightingmcqueen', 550, 40, 1, 1, ['line']);
 				act4Lightning.animation.addByPrefix('idle', 'line', 24, true);
 				act4Lightning.animation.play('idle');
+				act4Lightning.scale.set(4, 4);
+				act4Lightning.updateHitbox();
 				act4Lightning.visible = false;
 
 				act4DeadBF = new BGSprite('mario/allfinal/act4/Act_4_FINALE_DEATH', 340, -85, 1, 1, ['Death']);
 				act4DeadBF.animation.addByPrefix('die', 'Death', 24, false);
 				act4DeadBF.alpha = 0.00001;
+				act4DeadBF.scale.set(4, 4);
+				act4DeadBF.updateHitbox();
 				add(act4DeadBF);
 
 				act4GameOver = new BGSprite('mario/allfinal/act4/Act_4_FINALE_Gameover', 0, 0, 1, 1);
@@ -3915,6 +3958,7 @@ class PlayState extends MusicBeatState
 
 				act4Spotlight = new BGSprite('mario/allfinal/act4/spotlight', 400, 30, 1, 1);
 				act4Spotlight.scale.set(2, 2);
+				act4Spotlight.updateHitbox();
 				act4Spotlight.alpha = 0.25;
 				act4Spotlight.visible = false;
 
@@ -3978,16 +4022,18 @@ class PlayState extends MusicBeatState
 				blackBarThingie.cameras = [camEst];
 				add(blackBarThingie);
 
-				act1Intro = new BGSprite('mario/allfinal/act1/All_Stars_Intro', 0, 0, 0, 0, ['intro anim']);
+				act1Intro = new BGSprite('mario/allfinal/act1/All_Stars_Intro', 0, 200, 0, 0, ['intro anim']);
 				act1Intro.animation.addByPrefix('idle', 'intro anim', 24, false);
 				act1Intro.cameras = [camEst];
 				act1Intro.alpha = 0;
 				act1Intro.screenCenter(X);
+				act1Intro.scale.set(4, 4);
 				add(act1Intro);
 
-				act4Intro = new BGSprite('mario/allfinal/act4/Act_4_Voiceline', 0, 0, 1, 1, ['thingy']);
+				act4Intro = new BGSprite('mario/allfinal/act4/Act_4_Voiceline', 600, 200, 1, 1, ['thingy']);
 				act4Intro.animation.addByPrefix('anim', 'thingy', 24, false);
 				act4Intro.cameras = [camEst];
+				act4Intro.updateHitbox();
 				act4Intro.alpha = 0.00001;
 
 				camHUD.visible = false;
@@ -10270,12 +10316,12 @@ class PlayState extends MusicBeatState
 									}}));
 							case 14:
 								//voiceline thing
-								act4Intro.scale.set(0.01, 0.01);
+								act4Intro.scale.set(0.04, 0.04);
 								act4Intro.animation.play('anim', true);
 								extraTween.push(FlxTween.tween(act4Intro, {alpha: 1}, 0.5, {ease: FlxEase.sineOut}));
-								extraTween.push(FlxTween.tween(act4Intro.scale, {x: 1, y: 1}, 0.8, {ease: FlxEase.sineOut, onComplete: function(twn:FlxTween)
+								extraTween.push(FlxTween.tween(act4Intro.scale, {x: 4, y: 4}, 0.8, {ease: FlxEase.sineOut, onComplete: function(twn:FlxTween)
 									{	
-										extraTween.push(FlxTween.tween(act4Intro.scale, {x: 1.2, y: 1.2}, 10, {ease: FlxEase.quadInOut}));
+										extraTween.push(FlxTween.tween(act4Intro.scale, {x: 4.8, y: 4.8}, 10, {ease: FlxEase.quadInOut}));
 									}}));
 							case 15:
 								//FIGHT
